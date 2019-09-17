@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Lint HTML') {
+            steps {
+                tidy -q -e *.html
+                }
+            }
         stage('Upload to AWS') {
             steps {
                 sh 'echo "Hello World"'
@@ -10,7 +15,8 @@ pipeline {
                 '''
               withAWS(region:'us-east-2',credentials:'aws-static') {
                   s3Upload(bucket:"jenkins-cicd-pipeline-on-aws", includePathPattern:'**/*')
-                  incorret tectttt
+              
+             
               }
             }
         }
