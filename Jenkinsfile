@@ -8,7 +8,7 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
-              withAWS(region:'us-west-2',credentials:'305115181912') {
+              withAWS(region:'us-west-2',credentials:'aws-static') {
                   s3Upload(bucket:"jenkins-cicd-pipeline-on-aws", path: "http://jenkins-cicd-pipeline-on-aws.s3-website.us-east-2.amazonaws.com/", includePathPattern:'**/*')
               }
             }
