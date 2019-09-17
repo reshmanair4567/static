@@ -9,7 +9,7 @@ pipeline {
                     ls -lah
                 '''
               withAWS(region:'us-east-2',credentials:'aws-static') {
-                  s3Upload(bucket:"jenkins-cicd-pipeline-on-aws", path: "http://jenkins-cicd-pipeline-on-aws.s3-website.us-east-2.amazonaws.com/", includePathPattern:'**/*')
+                  s3Upload(path: "http://jenkins-cicd-pipeline-on-aws.s3-website.us-east-2.amazonaws.com/", includePathPattern:'**/*')
               }
             }
         }
